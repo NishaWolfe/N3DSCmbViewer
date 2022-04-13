@@ -40,6 +40,7 @@
             this.extractAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dumpModelInfosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dumpSceneActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); 
             this.dumpCOLLADAFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enableHUDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,6 +141,7 @@
             // 
             this.dumpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dumpModelInfosToolStripMenuItem,
+            this.dumpSceneActorsToolStripMenuItem,
             this.dumpCOLLADAFileToolStripMenuItem});
             this.dumpToolStripMenuItem.Enabled = false;
             this.dumpToolStripMenuItem.Name = "dumpToolStripMenuItem";
@@ -152,6 +154,13 @@
             this.dumpModelInfosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dumpModelInfosToolStripMenuItem.Text = "&Dump Model Infos";
             this.dumpModelInfosToolStripMenuItem.Click += new System.EventHandler(this.dumpModelInfosToolStripMenuItem_Click);
+            // 
+            // dumpSceneActorsToolStripMenuItem
+            // 
+            this.dumpSceneActorsToolStripMenuItem.Name = "dumpSceneActorsToolStripMenuItem";
+            this.dumpSceneActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dumpSceneActorsToolStripMenuItem.Text = "&Dump Scene Actors";
+            this.dumpSceneActorsToolStripMenuItem.Click += new System.EventHandler(this.dumpSceneActorsToolStripMenuItem_Click);
             // 
             // dumpCOLLADAFileToolStripMenuItem
             // 
@@ -272,7 +281,7 @@
             this.treeViewEx1.HideSelection = false;
             this.treeViewEx1.Location = new System.Drawing.Point(0, 24);
             this.treeViewEx1.Name = "treeViewEx1";
-            this.treeViewEx1.Size = new System.Drawing.Size(250, 480);
+            this.treeViewEx1.Size = new System.Drawing.Size(350, 480);
             this.treeViewEx1.TabIndex = 2;
             this.treeViewEx1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewEx1_AfterSelect);
             this.treeViewEx1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewEx1_NodeMouseClick);
@@ -336,6 +345,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem dumpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dumpModelInfosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dumpSceneActorsToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog sfdLogFile;
         private System.Windows.Forms.ToolStripMenuItem disableAllShadersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dumpCOLLADAFileToolStripMenuItem;

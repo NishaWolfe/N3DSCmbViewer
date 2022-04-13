@@ -9,6 +9,15 @@ Screenshots
 ![N3DSCmbViewer](http://i.imgur.com/uyXvgSI.png)
 ![N3DSCmbViewer](http://i.imgur.com/A0fSt2h.png)
 
+
+How to build
+=======
+Add and build the [Aglex repository](https://github.com/NishaWolfe/Aglex)
+
+Install OpenTK 3 for .NET Framework 4.x. (Tools --> NuGet Package Manager --> Package Manager Console --> `Install-Package OpenTK -Version 3.3.1`)
+
+
+
 Warning
 =======
 
@@ -23,3 +32,4 @@ Acknowledgements
 * Various additional research by Twili
 * COLLADA exporter written with a lot of help from Peardian
 * LZSS decompression code adapted from [C++ code by ShimmerFairy](https://github.com/ShimmerFairy/MM3D/)
+* Additional modifications by NishaWolfe
