@@ -22,13 +22,33 @@ namespace N3DSCmbViewer.Csab
         {
             Unknown08 = BitConverter.ToUInt32(ChunkData, 0x08);
             Unknown0C = BitConverter.ToUInt32(ChunkData, 0x0C);
-            NumberOfAnimations = BitConverter.ToUInt32(ChunkData, 0x10);
 
-            AnimationOffsets = new uint[NumberOfAnimations];
-            for (int i = 0; i < AnimationOffsets.Length; i++) AnimationOffsets[i] = BitConverter.ToUInt32(ChunkData, 0x14 + (i * sizeof(uint)));
+            if (BaseCTRChunk.IsMajora3D)
+            {
+                //Majora's Mask animations are currently broken.
+                //TODO: Fix maybe?
+                /*
+                NumberOfAnimations = BitConverter.ToUInt32(ChunkData, 0x3C);
 
-            Animations = new Animation[NumberOfAnimations];
-            for (int i = 0; i < Animations.Length; i++) Animations[i] = new Animation(this, (int)AnimationOffsets[i]);
+                AnimationOffsets = new uint[NumberOfAnimations];
+                for (int i = 0; i < AnimationOffsets.Length; i++) AnimationOffsets[i] = BitConverter.ToUInt32(ChunkData, 0x58 + (i * sizeof(uint)));
+
+                Animations = new Animation[NumberOfAnimations];
+                for (int i = 0; i < Animations.Length; i++) Animations[i] = new Animation(this, (int)AnimationOffsets[i] + 0x28);*/
+            }
+            else
+            {
+                NumberOfAnimations = BitConverter.ToUInt32(ChunkData, 0x10);
+
+                AnimationOffsets = new uint[NumberOfAnimations];
+                for (int i = 0; i < AnimationOffsets.Length; i++) AnimationOffsets[i] = BitConverter.ToUInt32(ChunkData, 0x14 + (i * sizeof(uint)));
+
+                Animations = new Animation[NumberOfAnimations];
+                for (int i = 0; i < Animations.Length; i++) Animations[i] = new Animation(this, (int)AnimationOffsets[i]);
+            }
+            
+
+            
         }
     }
 }
