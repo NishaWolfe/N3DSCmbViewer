@@ -22,6 +22,18 @@ namespace N3DSCmbViewer.Csab
         public ushort[] PerBoneIncides { get; private set; }
         public uint[] AnimNodeOffsets { get; private set; }
 
+
+
+        public uint AnimationTime { get; private set; }
+        public uint AnimationValue { get; private set; }
+
+
+
+
+
+
+
+
         public AnimNode[] AnimNodes { get; private set; }
 
         public Animation(CsabChunk parent, int offset)
@@ -31,14 +43,25 @@ namespace N3DSCmbViewer.Csab
 
             int rofs = offset;
 
+
+
+            AnimationTime = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x00);
+            AnimationValue = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x04);
+
+
+
+            
+
+
+
             Unknown00 = BitConverter.ToUInt32(parent.ChunkData, rofs);
             Unknown04 = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x04);
             Unknown08 = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x08);
             Unknown0C = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x0C);
             NumberOfUnknownStuffs = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x10);
             Unknown14 = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x14);
-            NumberOfAnimNodes = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x18);
-            NumberOfBones = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x1C);
+            NumberOfAnimNodes = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x30);
+            NumberOfBones = BitConverter.ToUInt32(parent.ChunkData, rofs + 0x34);
 
             rofs += 0x20;
             PerBoneIncides = new ushort[NumberOfBones];
@@ -48,8 +71,8 @@ namespace N3DSCmbViewer.Csab
             AnimNodeOffsets = new uint[NumberOfAnimNodes];
             for (int i = 0; i < AnimNodeOffsets.Length; i++) AnimNodeOffsets[i] = BitConverter.ToUInt32(parent.ChunkData, rofs + (i * sizeof(uint)));
 
-            AnimNodes = new AnimNode[NumberOfAnimNodes];
-            for (int i = 0; i < AnimNodes.Length; i++) AnimNodes[i] = new AnimNode(parent, Offset + (int)AnimNodeOffsets[i]);
+            /*AnimNodes = new AnimNode[NumberOfAnimNodes];
+            for (int i = 0; i < AnimNodes.Length; i++) AnimNodes[i] = new AnimNode(parent, Offset + (int)AnimNodeOffsets[i]);*/
         }
     }
 }

@@ -58,8 +58,10 @@
     <Compile Include="Cmb\Constants.cs" />
     <Compile Include="Cmb\ExportCollada.cs" />
     <Compile Include="Csab\Animation.cs" />
+    <Compile Include="Csab\AnimFrame.cs" />
     <Compile Include="Csab\AnimHandler.cs" />
     <Compile Include="Csab\AnimNode.cs" />
+    <Compile Include="Csab\AnimTrack.cs" />
     <Compile Include="Csab\CsabChunk.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="LZSS.cs" />
